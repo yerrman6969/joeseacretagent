@@ -775,6 +775,13 @@
 /* Edit mode: always visible, gray if no URL */
 body.edit-mode #dp-hero-link { display: flex; background: #9ca3af; color: transparent; }
 body.edit-mode #dp-hero-link.has-url { background: #1d8fe8; color: transparent; }
+/* Mobile: keep icon inside screen, bottom-right of hero info area */
+@media (max-width: 900px) {
+  #dp-hero-link {
+    bottom: 16px;
+    right: 16px;
+  }
+}
 
 </style>
 </head>
@@ -940,7 +947,7 @@ try{Object.keys(localStorage).filter(k=>k.startsWith('img_')&&!k.startsWith('img
     <div class="pw-title">Editor Access</div>
     <div class="pw-subtitle">Enter password to enable edit mode</div>
     <input class="pw-input" type="password" id="pw-input" placeholder="••••••••" onkeydown="if(event.key==='Enter')submitPassword()" autocomplete="current-password">
-    <div class="pw-error show" id="pw-error">❌ Wrong password. 4 attempts left.</div>
+    <div class="pw-error" id="pw-error">❌ Wrong password. Try again.</div>
     <div class="pw-actions">
       <button class="pw-cancel" onclick="closePwModal()">Cancel</button>
       <button class="pw-submit" onclick="submitPassword()">Unlock →</button>
